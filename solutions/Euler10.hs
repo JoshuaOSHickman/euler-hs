@@ -1,5 +1,3 @@
-module Euler10 (main) where
-
 union (x:xs) (y:ys) = case compare x y of
   LT -> x : union  xs (y:ys)
   EQ -> x : union  xs    ys
@@ -19,7 +17,6 @@ primes = 2 : ([3,5..] `minus` unionAll [[p*p, p*p+2*p..] | p <- primes'])
     unionAll ((x:xs):t) = x : union xs (unionAll (pairs t))
     pairs ((x:xs):ys:t) = (x : union xs ys) : pairs t
 
-value = foldl (+) 0 (takeWhile (< 2000000) primes)
+value = sum (takeWhile (< 2000000) primes)
 
-main = do
-  putStrLn . show $ value
+main = print value

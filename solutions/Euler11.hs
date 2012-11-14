@@ -1,6 +1,3 @@
-
-
-main :: IO ()
 main = do
   gridData <- readFile "../data/grid11.txt"
   let grid = map (map read . words) . lines $ gridData

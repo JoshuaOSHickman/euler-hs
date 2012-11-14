@@ -1,29 +1,6 @@
------------------------------------------------------------------------------
---
--- Module      :  Euler2
--- Copyright   :
--- License     :  AllRightsReserved
---
--- Maintainer  :
--- Stability   :
--- Portability :
---
--- |
---
------------------------------------------------------------------------------
-
-module Euler1 (
-    main
-) where
-
 fibs = 0 : 1 : zipWith (+) fibs (tail fibs)
+value = sum . filter even . takeWhile (<= 4000000) $ fibs
+main = print value
 
-value = (foldl (+) 0) . (filter even) . (takeWhile (<= 4000000)) $ fibs
-
-
-doShow = do
-    (putStrLn . show) value
-
-main = doShow
 
 
